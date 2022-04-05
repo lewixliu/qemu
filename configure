@@ -7817,6 +7817,8 @@ case "$target_name" in
   ;;
   cris)
   ;;
+  fr)
+  ;;
   hppa)
     mttcg="yes"
     TARGET_SYSTBL_ABI=common,32
@@ -8061,6 +8063,9 @@ for i in $ARCH $TARGET_BASE_ARCH ; do
   ;;
   cris)
     disas_config "CRIS"
+  ;;
+  fr)
+    disas_config "FR"
   ;;
   hppa)
     disas_config "HPPA"

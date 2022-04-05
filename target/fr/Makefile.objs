@@ -1,0 +1,14 @@
+obj-y += translate.o op_helper.o helper.o cpu.o mmu.o insns.print.o
+
+$(obj)/op_helper.o: QEMU_CFLAGS += $(HELPER_CFLAGS)
+
+DECODETREE = $(SRC_PATH)/scripts/decodetree.py
+
+target/fr/decode.inc.c: \
+  $(SRC_PATH)/target/fr/insns.decode $(DECODETREE)
+	$(call quiet-command,\
+		$(PYTHON) $(DECODETREE) --static-decode fr_decode --insnwidth 16 -o $@ $<, "GEN", $(TARGET_DIR)$@)
+
+target/fr/translate.o: target/fr/decode.inc.c
+
+target/fr/insns.print.o: target/fr/decode.inc.c

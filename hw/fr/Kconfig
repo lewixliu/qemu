@@ -1,0 +1,15 @@
+config FR_GENERIC
+    bool
+    select FR
+
+config FR_MB91635
+    bool
+    select FR80
+    select PTIMER
+
+config FR80
+    bool
+    select FR
+
+config FR
+    bool

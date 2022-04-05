@@ -1,0 +1,3 @@
+obj-y = boot.o
+obj-$(CONFIG_FR_GENERIC) += generic.o
+obj-$(CONFIG_FR_MB91635) += mb91635.o
